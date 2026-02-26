@@ -12,14 +12,7 @@ class PersonsListTest {
     @BeforeEach
     void setUp() {
         personsList = new PersonsList();
-        personsList.add("Omar Ismayilov", 19, "IT");
-
-        person = new Person(
-                1,
-                "Omar Ismayilov",
-                19,
-                "IT"
-        );
+        person = personsList.add("Omar Ismayilov", 19, "IT");
     }
 
     @Test
@@ -43,7 +36,7 @@ class PersonsListTest {
         Person clonedPerson = personsList.clone(person);
 
         assertNotNull(clonedPerson);
-        assertNotEquals(1, clonedPerson.getId());
+        assertNotEquals(person.getId(), clonedPerson.getId());
         assertEquals("Omar Ismayilov", clonedPerson.getName());
         assertEquals(19, clonedPerson.getAge());
         assertEquals("IT", clonedPerson.getOccupation());
